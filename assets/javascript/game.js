@@ -18,6 +18,12 @@ var guesses = 9;
 // First when a key is pressed, the game begins
 
 
+function gameStart(e) {
+    var computerChoice = computerGuesser();
+    console.log(computerChoice);
+}
+
+document.onkeydown = gameStart();
 // The computer will automatically put a number in it's reserve
 
 // Then the user can press 8 more times to guess the number if that number === computer number then you win
@@ -30,5 +36,10 @@ function displayScores() {
     guessCount.textContent = guesses;
 }
 
+function computerGuesser() {
+    var computerOptions = ['a','e','i','o','u'];
+    var computerNumber = computerOptions[Math.floor(Math.random() * 5)];
+    return computerNumber;
+}
 
-displayScores()
+displayScores();
