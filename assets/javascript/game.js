@@ -7,7 +7,7 @@ var winText = document.getElementById("win-count");
 var lossText = document.getElementById("loss-count");
 var guessCount = document.getElementById("guess-count");
 var guessList = document.getElementById("guess-list");
-var computerOptions = ['a', 'e', 'i', 'o', 'u'];
+var computerOptions = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var resetButton = document.getElementById("reset-button");
 // 
 var wins = 0;
@@ -16,7 +16,7 @@ var guesses = 9;
 
 //This generates a random number for our computer
 function computerGuesser() {
-    var computerNumber = computerOptions[Math.floor(Math.random() * 5)];
+    var computerNumber = computerOptions[Math.floor(Math.random() * 26)];
     return computerNumber;
 }
 
@@ -36,6 +36,7 @@ function endGameWin() {
     alert("You win!");
     guesses = 9;
     guessList.textContent = "";
+    computerGuesser();
 }
 
 //This alerts you of a loss and resets the guesses and text content of 'your losses'
@@ -43,6 +44,7 @@ function endGameLoss() {
     alert("You Lose...");
     guesses = 9;
     guessList.textContent = "";
+    computerGuesser();
 }
 
 //This is the code that will run the game once the user presses a key
