@@ -1,7 +1,6 @@
 // We're going to create a game where I will guess 9 times a letter, and if that
 // letter is correct than I win. If It's not correct, I lose.
 
-
 // Create Global Variables here
 var winText = document.getElementById("win-count");
 var lossText = document.getElementById("loss-count");
@@ -9,23 +8,26 @@ var guessCount = document.getElementById("guess-count");
 var guessList = document.getElementById("guess-list");
 var computerOptions = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var resetButton = document.getElementById("reset-button");
-// 
+// These are our tally variables
 var wins = 0;
 var losses = 0;
 var guesses = 9;
 
 
-//This generates a random number for our computer
+//This defines the computerGuess variable our functions will be referencing.
 var computerGuess = computerGuesser();
 console.log(computerGuess);
 
-
+//This is the actual function which determines our Computer's guess
 function computerGuesser() {
     computerGuess = computerOptions[Math.floor(Math.random() * 26)];
     return computerGuess;
 } 
 
+
+//This event listner links our reset button to the resetScores functoin, which resets the variables to their original state and regenerates a computer guess
 resetButton.addEventListener("click", resetScores);
+
 //This sets the values for Wins, losses and guesses remaining when browser loads
 function displayScores() {
     wins = 0;
@@ -36,6 +38,7 @@ function displayScores() {
     guessCount.textContent = guesses;
 }
 
+//This is the resetScores function mentioned above
 function resetScores(){
     wins = 0;
     losses = 0;
@@ -43,6 +46,7 @@ function resetScores(){
     winText.textContent = wins;
     lossText.textContent = losses;
     guessCount.textContent = guesses;
+    guessList.textContent = "";
     computerGuesser();
     console.log(computerGuess);
 }
@@ -53,7 +57,7 @@ function endGameWin() {
     alert("You win!");
     guesses = 9;
     guessList.textContent = "";
-    computerGuesser();
+    computerGuesser(); //this resets the computer's guess
     console.log(computerGuess);
 }
 
@@ -62,7 +66,7 @@ function endGameLoss() {
     alert("You Lose...");
     guesses = 9;
     guessList.textContent = "";
-    computerGuesser();
+    computerGuesser(); //this resets the computer's guess
     console.log(computerGuess);
 }
 
@@ -86,7 +90,7 @@ function gameStart() {
         losses++;
         endGameLoss();
     }
-    
+
     //These will document what the new win, loss and guess count are based on the results from our if else statement
     document.getElementById("win-count").textContent = wins; 
     document.getElementById("loss-count").textContent = losses;
@@ -95,19 +99,5 @@ function gameStart() {
 // Game will start on key press
 document.onkeyup = gameStart;
 
-//Add event listener to our reset button when user clicks it
-
-
 // Original Score setting as file loads
 console.log(displayScores());
-
-
-//This sets the value of the computer Guess to be used in our game function aka gameStart()
-
-
-
-// function userGuess() {
-//     var key = document.onkeyup;
-//     console.log(key);
-// }
-
