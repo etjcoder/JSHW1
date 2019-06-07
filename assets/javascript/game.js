@@ -14,22 +14,39 @@ var wins = 0;
 var losses = 0;
 var guesses = 9;
 
-//This generates a random number for our computer
-function computerGuesser() {
-    var computerNumber = computerOptions[Math.floor(Math.random() * 26)];
-    return computerNumber;
-}
 
+//This generates a random number for our computer
+var computerGuess = computerGuesser();
+console.log(computerGuess);
+
+
+function computerGuesser() {
+    computerGuess = computerOptions[Math.floor(Math.random() * 26)];
+    return computerGuess;
+} 
+
+resetButton.addEventListener("click", resetScores);
 //This sets the values for Wins, losses and guesses remaining when browser loads
 function displayScores() {
+    wins = 0;
+    losses = 0;
+    guesses = 9;
     winText.textContent = wins;
     lossText.textContent = losses;
     guessCount.textContent = guesses;
 }
 
-//This sets the value of the computer Guess to be used in our game function aka gameStart()
-computerGuess = computerGuesser();
-console.log(computerGuess);
+function resetScores(){
+    wins = 0;
+    losses = 0;
+    guesses = 9;
+    winText.textContent = wins;
+    lossText.textContent = losses;
+    guessCount.textContent = guesses;
+    computerGuesser();
+    console.log(computerGuess);
+}
+
 
 //This alerts you of a win and resets the guesses and text content of 'your guesses'
 function endGameWin() {
@@ -37,6 +54,7 @@ function endGameWin() {
     guesses = 9;
     guessList.textContent = "";
     computerGuesser();
+    console.log(computerGuess);
 }
 
 //This alerts you of a loss and resets the guesses and text content of 'your losses'
@@ -45,6 +63,7 @@ function endGameLoss() {
     guesses = 9;
     guessList.textContent = "";
     computerGuesser();
+    console.log(computerGuess);
 }
 
 //This is the code that will run the game once the user presses a key
@@ -77,10 +96,14 @@ function gameStart() {
 document.onkeyup = gameStart;
 
 //Add event listener to our reset button when user clicks it
-resetButton.addEventListener("click", displayScores);
+
 
 // Original Score setting as file loads
-displayScores();
+console.log(displayScores());
+
+
+//This sets the value of the computer Guess to be used in our game function aka gameStart()
+
 
 
 // function userGuess() {
@@ -88,8 +111,3 @@ displayScores();
 //     console.log(key);
 // }
 
-// document.onkeyup = userGuess(); 
-
-
-
-// document.onkeydown = gameStart();
