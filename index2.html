@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- We're going to write out the HTML Text of the website -->
+    <h1> The LOTR Word Guess Game</h1>
+    <hr>
+    <br>
+    <h2> Hello, I am your executioner! Choose a Word or you shall be hung!</h2>
+    <br>
+    <h3> Press <strong>Any Key</strong> to Begin!</h3>
+    <br>
+    <hr>
+    <br>
+    <h3>Current Word:</h3>
+    <br>
+    <div><span id="random-word"></span></div>
+    <br>
+    <div><span id="random-word-placeholder"></span></div>
+    <br>
+    <div> Guesses remaining: <span id="guess-count"></span></div>
+    <br>
+    <div> Your guesses <span id="guess-list"></span></div>
+    <hr>
+
+    <button type="button" id="reset-button">Reset</button>
+
+
+    <!-- link to our Javascsript -->
+    <script src="assets/javascript/game-word guess.js"></script>
+</body>
+</html>
